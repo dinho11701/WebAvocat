@@ -1,0 +1,53 @@
+/* On peut ajouter plus de styles ici selon les besoins */
+body {
+    background-color: #f4f4f4; /* Couleur de fond douce pour l'ensemble du site */
+    color: #333; /* Couleur du texte pour une bonne lisibilité */
+    font-family: 'Arial', sans-serif; /* Police professionnelle et moderne */
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #005a9c; /* Bleu foncé professionnel */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar li a, .navbar li div {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover, .navbar li div:hover {
+    background-color: #003366; /* Un bleu plus foncé pour le survol */
+}  
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.navbar-logo img {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+/* Assurez-vous que le conteneur de texte est aligné avec les liens */
+.navbar-logo span {
+    display: block;
+    padding: 14px 16px;
+    color: white;
+    text-decoration: none;
+}
