@@ -1,3 +1,53 @@
+/* Styles généraux */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Ajoute des formes en arrière-plan */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::before {
+    left: 10%;
+    background-color: #0077cc; /* Bleu moyen */
+    opacity: 0.5;
+    transform: scaleX(2);
+}
+
+body::after {
+    right: 10%;
+    background-color: #004c99; /* Bleu un peu plus foncé */
+    opacity: 0.5;
+    transform: scaleY(2) rotate(45deg);
+}
+
+/* Continuez avec le reste de vos styles */
+
+/* Styles de la barre de navigation */
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #005a9c;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative; /* Pour positionner correctement les liens */
+}
+
+
+
+
 /* On peut ajouter plus de styles ici selon les besoins */
 body {
     background-color: #f4f4f4; /* Couleur de fond douce pour l'ensemble du site */
@@ -50,4 +100,41 @@ body {
     padding: 14px 16px;
     color: white;
     text-decoration: none;
+}
+
+
+/*------------------------/
+
+/* Ajoutez ces styles à la suite de votre CSS existant dans style.css */
+
+/* Formes en arrière-plan */
+.shape {
+    position: fixed;
+    z-index: -1;
+    background-color: rgba(0, 90, 156, 0.2); /* Bleu avec transparence */
+    border-radius: 50%; /* Rend les formes circulaires */
+}
+
+/* Forme en haut à gauche */
+.shape.shape-lg {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+}
+
+/* Forme en bas à droite */
+.shape.shape-sm {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+}
+
+/* Forme supplémentaire pour ajouter de la complexité */
+.shape.shape-md {
+    width: 300px;
+    height: 300px;
+    bottom: 100px;
+    right: 250px;
 }
