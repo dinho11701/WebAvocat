@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Envoyer document</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+    <body>
+
+        <div class="shape shape-lg"></div>
+        <div class="shape shape-md"></div>
+        <div class="shape shape-sm"></div>
+
+        <header>
+            <ul class="navbar">
+                <li class="navbar-logo">
+                    <a href="#">
+                        <img src="logo.png" alt="Logo">
+                        <span>Avocat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#accueil">Accueil</a>
+                </li>
+                <li>
+                    <a href="#rdv.html">Prise de rdv</a>
+                </li>
+                <li>
+                    <a href="envoyer-document.html">Envoyer document</a>
+                </li>
+                <li>
+                    <a href="#about-us.html">En savoir plus sur nous</a>
+                </li>
+            </ul>
+        </header>
+
+        <div class="form-container">
+            <h2>Contactez-nous</h2>
+            <form action="/submit_form" method="post" enctype="multipart/form-data">
+                <div class="form-field">
+                    <label for="name">Nom:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="docname">Nom du document:</label>
+                    <input type="text" id="docname" name="docname" required>
+                </div>
+                <div class="form-field">
+                    <label for="message">Message associé:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-field">
+                    <label for="file">Joindre Document:</label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                    <p>© 2022 Avocat. Tous les droits sont réservés.</p>
+                    <ul class="footer-links">
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+            </div>
+        </footer>
+
+    </body>
+</html>
