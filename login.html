@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login Form</h2>
+            <form action="/post_login_data" method="post">
+                <div class="input-group">
+                    <input type="text" id="email-phone" name="email-phone" placeholder="Email or Phone" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit">LOGIN</button>
+                <div class="social-login">
+                    <p>Or login with</p>
+                    <button class="social-button fb">Facebook</button>
+                    <button class="social-button ig">Instagram</button>
+                </div>
+                <div class="signup-link">
+                    Don't have account? <a href="signup.html">Sign up Now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
