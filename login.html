@@ -11,7 +11,7 @@
     <div class="login-container">
         <div class="login-form">
             <h2>Login Form</h2>
-            <form action="/post_login_data" method="post">
+            <form id="login-form">
                 <div class="input-group">
                     <input type="text" id="email-phone" name="email-phone" placeholder="Email or Phone" required>
                 </div>
@@ -33,6 +33,15 @@
             </form>
         </div>
     </div>
+    <!-- Firebase App est toujours nécessaire et doit être en premier -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
 
+    <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+
+
+    <script src="index.js"  type="module" ></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>

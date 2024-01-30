@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dinho11701/WebAvocat/issues"
   },
-  "homepage": "https://github.com/dinho11701/WebAvocat#readme"
+  "homepage": "https://github.com/dinho11701/WebAvocat#readme",
+  "dependencies": {
+    "firebase": "^10.7.2"
+  }
 }
