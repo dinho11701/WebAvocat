@@ -3,6 +3,7 @@
 <head>
     <title>Site Web d'Avocat</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div class="shape shape-lg"></div>
@@ -29,7 +30,10 @@
             <li>
                 <a href="#about-us.html">En savoir plus sur nous</a>
             </li>
+
+            
         </ul>
+
     </header>
 
     <footer>
@@ -39,10 +43,34 @@
                     <li><a href="mentions-legales.html">Mentions légales</a></li>
                     <li><a href="contact.html">Contactez-nous</a></li>
                     <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    
+
+
                 </ul>
         </div>
     </footer>
 
+    <script>
+        // Fonction pour basculer le menu déroulant
+        function toggleDropdown() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Fermer le dropdown si l'utilisateur clique en dehors de celui-ci
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+    
 </body>
 </html>
 
