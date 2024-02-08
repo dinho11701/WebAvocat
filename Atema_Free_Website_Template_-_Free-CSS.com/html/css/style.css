@@ -1330,4 +1330,27 @@ textarea#comment::placeholder {
   .send-btn:hover {
     background-color: #0056b3;
   }
-  
+/* style calendly */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Centrer le titre et le widget Calendly */
+}
+
+.heading {
+    color: #004b8d; /* Couleur du texte bleue comme sur l'image */
+    font-size: 32px; /* Taille de la police */
+    font-weight: bold; /* Police en gras */
+    text-transform: uppercase; /* Majuscules */
+    letter-spacing: 1.5px; /* Espacement des lettres pour ressembler à l'image */
+    margin-bottom: 20px; /* Espace sous le titre */
+    text-align: center; /* Alignement du texte au centre */
+}
+
+#calendly-container {
+    /* Ajoutez des styles personnalisés pour le widget Calendly ici */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); /* Ombre de la boîte pour la profondeur */
+    border-radius: 8px; /* Coins arrondis pour le conteneur Calendly */
+    overflow: hidden; /* Pour les coins arrondis */
+}
