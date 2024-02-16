@@ -1354,3 +1354,90 @@ textarea#comment::placeholder {
     border-radius: 8px; /* Coins arrondis pour le conteneur Calendly */
     overflow: hidden; /* Pour les coins arrondis */
 }
+
+
+/*login*/
+.login-container {
+    background: url('path-to-your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-title {
+    margin-bottom: 20px;
+    color: #004b8d;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.forgot-password,
+.social-login-title,
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004b8d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #003366;
+}
+
+.social-button {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fb {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.ig {
+    background-color: #e4405f;
+    color: #fff;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-link a {
+    color: #004b8d;
+    font-weight: bold;
+}
