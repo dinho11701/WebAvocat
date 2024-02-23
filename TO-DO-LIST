@@ -9,9 +9,13 @@ page contact:
 envoyer message a une adresse mail - DONE
 
 page login;
-régler le probleme que ca se connecte only avec mon mail - À FAIRE
-hasher password - À FAIRE
+régler le probleme que ca se connecte only avec mon mail - DONE 
+hasher password - Already done by firebase
+
+envoyer mail de confirmation d'inscription - À FAIRE
 
 faire une page pour dire email sent successfully et retourner à page accueil
 ou retourner direct à page accueil 
 
+
+régler le problème de disparition de Calendly ds page de prise de rdv
