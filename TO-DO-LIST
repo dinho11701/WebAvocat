@@ -9,5 +9,9 @@ page contact:
 envoyer message a une adresse mail - DONE
 
 page login;
-régler le probleme que ca se connecte only avec mon mail
-hasher password
+régler le probleme que ca se connecte only avec mon mail - À FAIRE
+hasher password - À FAIRE
+
+faire une page pour dire email sent successfully et retourner à page accueil
+ou retourner direct à page accueil 
+

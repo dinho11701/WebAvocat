@@ -1,0 +1,18 @@
+Login:
+bon mail et mauvais password(incluant vide ou espace): BON 
+mauvais mail et bon et mauvais password : BON
+
+
+Inscription:
+je minscris avec un autre compte, ca marche mais ca n'aparait pas sur firebase
+
+username : allioz11701
+mail : nayeripoor@gmail.com
+password : coco11
+
+Ca a marché
+
+fais une nouvelle inscription:
+username ; hasna11
+mail : hasna@gmail.com 
+password carrot

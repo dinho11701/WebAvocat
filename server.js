@@ -7,7 +7,7 @@ const app = express();
 const upload = multer(); // for parsing multipart/form-data
 
 // Set this to your SendGrid API key
-sgMail.setApiKey('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');
+sgMail.setApiKey('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');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
