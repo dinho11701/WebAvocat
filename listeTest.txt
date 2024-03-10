@@ -15,4 +15,29 @@ Ca a marché
 fais une nouvelle inscription:
 username ; hasna11
 mail : hasna@gmail.com 
-password carrot
+password : carrot
+
+Mail confirmation:
+Création compte :
+username : tom11
+mail : gg@gmail.com
+password : thoma11
+
+
+compte: 
+username: hehe11
+mail : pepe@gmail.com
+password  : pepe11
+
+
+node server.js 
+
+
+
+
+
+
+
+
+
+essayer avec autre que gmail 
