@@ -48,5 +48,8 @@ app.post('/send-email', upload.single('attachment'), (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3002;
+
+
+
+const PORT = process.env.PORT || 300;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

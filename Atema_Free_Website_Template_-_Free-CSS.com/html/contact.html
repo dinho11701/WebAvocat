@@ -79,7 +79,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="mail_section map_form_container">
-                        <form action="http://localhost:3000/send-email" method="post" enctype="multipart/form-data">
+                        <form action="http://localhost:3006/send-email" method="post" enctype="multipart/form-data">
                           <input type="text" class="mail_text" placeholder="Name" name="name" required>
                           <input type="text" class="mail_text" placeholder="Phone Number" name="phoneNumber" required> 
                           <input type="email" class="mail_text" placeholder="Your Email" name="email" required>
@@ -149,5 +149,54 @@
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
       <!-- javascript --> 
+
+      <!-- Add these divs inside your <body> just before the closing tag for the success and error messages -->
+         <div id="emailSendingMessage" style="display:none;">Sending...</div>
+         <div id="emailSuccessMessage" style="display:none;">Email sent successfully!</div>
+         <div id="emailErrorMessage" style="display:none;">Error sending email. Please try again.</div>
+         
+         <script>
+           // You need to handle the form submission with AJAX
+           document.addEventListener('DOMContentLoaded', function () {
+             const form = document.querySelector('form');
+             form.addEventListener('submit', function (e) {
+               e.preventDefault();
+               
+               // Show sending message
+               document.getElementById('emailSendingMessage').style.display = 'block';
+         
+               const formData = new FormData(form);
+               
+               // Make sure you handle the request to your backend here
+               fetch('http://localhost:3006/send-email', {
+                 method: 'POST',
+                 body: formData
+               })
+               .then(response => {
+                 if (!response.ok) {
+                   throw new Error('Network response was not ok');
+                 }
+                 return response.json();
+               })
+               .then(data => {
+                 // Handle success
+                 document.getElementById('emailSendingMessage').style.display = 'none';
+                 document.getElementById('emailSuccessMessage').style.display = 'block';
+               })
+               .catch(error => {
+                 // Handle errors
+                 document.getElementById('emailSendingMessage').style.display = 'none';
+                 document.getElementById('emailErrorMessage').style.display = 'block';
+               });
+             });
+           });
+         </script>
+         
+         
+
+
+
+
+
    </body>
 </html>
