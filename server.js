@@ -1,53 +1,54 @@
-require('dotenv').config(); // Assurez-vous que cette ligne est au début de votre fichier pour charger les variables d'environnement
+require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const sgMail = require('@sendgrid/mail');
+const cors = require('cors'); // include CORS
 
 const app = express();
-const upload = multer(); // for parsing multipart/form-data
 
-// Utilisez la clé API de SendGrid à partir des variables d'environnement
+// Setup multer for file handling
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// Enable CORS for all routes
+app.use(cors()); // enable CORS
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/send-email', upload.single('attachment'), (req, res) => {
   const { name, phoneNumber, email, message } = req.body;
-  const { file } = req.file; // Ici, req.file est directement utilisé, pas req.
+  let attachments = [];
+
+  // Check if a file is present in the request
+  if (req.file) {
+    attachments = [{
+      content: req.file.buffer.toString('base64'),
+      filename: req.file.originalname,
+      type: req.file.mimetype,
+      disposition: 'attachment'
+    }];
+  }
 
   const msg = {
-    to: process.env.RECIPIENT_EMAIL, // Utilisez des variables d'environnement pour les adresses e-mail
-    from: process.env.SENDER_EMAIL, // Idem ici
+    to: process.env.RECIPIENT_EMAIL,
+    from: process.env.SENDER_EMAIL,
     subject: 'New Contact Form Submission',
     text: `Message from: ${name}\nEmail: ${email}\nPhone: ${phoneNumber}\nMessage: ${message}`,
-    attachments: file
-      ? [{
-          content: file.buffer.toString('base64'),
-          filename: file.originalname,
-          type: file.mimetype,
-          disposition: 'attachment',
-        }]
-      : [],
+    attachments: attachments
   };
 
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent');
-      res.send('Email sent successfully');
-    })
+  sgMail.send(msg)
+    .then(() => res.json({ success: true, message: 'Email sent successfully' }))
     .catch((error) => {
       console.error(error);
-      if (error.response) {
-        console.error(error.response.body)
-      }
-      res.status(500).send('Error sending email');
+      res.status(500).json({ success: false, message: 'Error sending email' });
     });
 });
 
-
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 2014;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
