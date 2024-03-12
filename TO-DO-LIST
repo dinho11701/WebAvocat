@@ -20,6 +20,7 @@ faire tt les pages manquantes:
 
 2-faire une page pour dire email sent successfully et retourner à page accueil qui est index.html
 ou retourner direct à page accueil - DONE
+
 3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out
 mais verifier quand-même)
 
@@ -30,3 +31,6 @@ régler le problème de disparition de Calendly ds page de prise de rdv
 
 
 rediriger page aux bons endroits
+
+-régler bon nombre pour le numero de tel ds contact.html
+-etre une bonne adresse mail valide
