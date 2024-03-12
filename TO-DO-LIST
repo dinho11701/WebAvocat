@@ -19,8 +19,7 @@ faire tt les pages manquantes:
 1-ramener à page index.html, quand j'appuie sur se deconnecter -DONE
 
 2-faire une page pour dire email sent successfully et retourner à page accueil qui est index.html
-ou retourner direct à page accueil - Presque finit (envoi de mail à nouveau fonctionnel)
-
+ou retourner direct à page accueil - DONE
 3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out
 mais verifier quand-même)
 
