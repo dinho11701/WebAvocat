@@ -29,15 +29,18 @@ username: hehe11
 mail : pepe@gmail.com
 password  : pepe11
 
+compte:
+username: hasnaos
+mail : hasos@gmail.com 
+password : haoswa
+
+
+Anomalies:
+il doit y avoir 6 caractères et cest bon 
+//mais password marche quand ya 6 espaces
+//il doit pas y avoir d'espaces ds le password
+
 
 node server.js 
-
-
-
-
-
-
-
-
 
 essayer avec autre que gmail 

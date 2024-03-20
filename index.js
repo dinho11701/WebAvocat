@@ -83,21 +83,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-document.getElementById('signup-form').addEventListener('submit', function (event) {
-  event.preventDefault()
-
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-
-  // Sign up the user with Firebase Authentication
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // User has been signed up and the Firebase Function will trigger the email
-      console.log('User signed up:', userCredential.user.email)
-      // You can redirect the user to another page if needed
-    })
-    .catch((error) => {
-      console.error('Error signing up:', error)
-      alert(`Erreur lors de l'inscription: ${error.message}`)
-    })
-})
