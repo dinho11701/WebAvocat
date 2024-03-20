@@ -50,20 +50,29 @@ function loginUser (email, password) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const signupForm = document.getElementById('signup-form')
+  const signupForm = document.getElementById('signup-form');
   if (signupForm) {
     signupForm.addEventListener('submit', (e) => {
-      e.preventDefault()
-      const email = document.getElementById('email').value
-      const password = document.getElementById('password').value
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+
+      // Check if password contains spaces
+      if (/\s/.test(password)) {
+        alert('Le mot de passe ne doit pas contenir d\'espaces.');
+        return;
+      }
+
+      // Further checks for password could go here (length, special characters, etc.)
+
       registerUser(email, password)
         .then(() => {
-          window.location.href = 'index.html'
+          window.location.href = 'login.html'; // Redirect to login after successful signup
         })
         .catch((error) => {
-          alert(`Erreur lors de l'inscription: ${error.message}`)
-        })
-    })
+          alert(`Erreur lors de l'inscription: ${error.message}`);
+        });
+    });
   }
 
   const loginForm = document.getElementById('login-form')
@@ -74,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('password').value
       loginUser(email, password)
         .then(() => {
-          window.location.href = 'index.html' // Redirigez vers une page appropriée après la connexion
+          window.location.href = 'Atema_Free_Website_Template_-_Free-CSS.com/html/index.html' // Redirigez vers une page appropriée après la connexion
         })
         .catch((error) => {
           alert(`Erreur lors de la connexion: ${error.message}`)
