@@ -30,7 +30,10 @@ mais verifier quand-même)
 
 
 
-rediriger page aux bons endroits
+rediriger page aux bons endroits:
+inscription - login DONE
+login - index DONE
+
 
 -régler bon nombre pour le numero de tel ds contact.html
 -etre une bonne adresse mail valide

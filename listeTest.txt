@@ -34,6 +34,7 @@ username: hasnaos
 mail : hasos@gmail.com @gmail et 
 gmail marche pas ce qui est bon 
 pareil si on rajoute com à la fin 
+
 password : haoswa
 ou 
 password : 1à6espaces
