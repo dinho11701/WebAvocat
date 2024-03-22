@@ -24,6 +24,8 @@ ou retourner direct à page accueil - DONE
 3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out
 mais verifier quand-même)
 
+
+
 4-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
 
 
@@ -33,6 +35,7 @@ mais verifier quand-même)
 rediriger page aux bons endroits:
 inscription - login DONE
 login - index DONE
+tt pages html vers login.html quand on appuie sur boutton login DONE
 
 
 -régler bon nombre pour le numero de tel ds contact.html

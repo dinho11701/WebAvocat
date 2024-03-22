@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('password').value
       loginUser(email, password)
         .then(() => {
-          window.location.href = 'Atema_Free_Website_Template_-_Free-CSS.com/html/index.html' // Redirigez vers une page appropriée après la connexion
+          window.location.href = 'index.html' // Redirigez vers une page appropriée après la connexion
         })
         .catch((error) => {
           alert(`Erreur lors de la connexion: ${error.message}`)
