@@ -42,11 +42,6 @@ password : 1à6espaces
 
 
 
-Anomalies:
-il doit y avoir 6 caractères et cest bon 
-//mais password marche quand ya 6 espaces
-//il doit pas y avoir d'espaces ds le password
-
 
 node server.js 
 
