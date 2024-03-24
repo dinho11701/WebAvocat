@@ -93,4 +93,31 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+// Function to toggle login/logout button based on user authentication state
+function toggleLoginLogout() {
+    const loginLogoutButton = document.getElementById('loginLogoutButton');
+    const loginLogoutText = document.getElementById('loginLogoutText');
+
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in, change to logout icon/button
+            loginLogoutText.innerHTML = 'Profil'; // Change the text to "Profile" or something appropriate
+            loginLogoutButton.querySelector('a').href = 'profile.html'; // Assuming 'profile.html' is your profile page
+            loginLogoutButton.querySelector('a').innerHTML = `<span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span> ${loginLogoutText.innerHTML}`; // Update the innerHTML to include the user icon and "Profil"
+        } else {
+            // No user is signed in, show login button
+            loginLogoutText.innerHTML = 'Login';
+            loginLogoutButton.querySelector('a').href = 'login.html'; // Change back to login page
+            loginLogoutButton.querySelector('a').innerHTML = `<span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span> ${loginLogoutText.innerHTML}`; // Reset innerHTML to show "Login"
+        }
+    });
+}
+
+// Initialize toggle function on document load
+document.addEventListener('DOMContentLoaded', () => {
+  toggleLoginLogout();
+
+  // Existing code for handling form submissions remains unchanged...
+});
+
 
