@@ -93,31 +93,39 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// Function to toggle login/logout button based on user authentication state
-function toggleLoginLogout() {
-    const loginLogoutButton = document.getElementById('loginLogoutButton');
-    const loginLogoutText = document.getElementById('loginLogoutText');
-
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            // User is signed in, change to logout icon/button
-            loginLogoutText.innerHTML = 'Profil'; // Change the text to "Profile" or something appropriate
-            loginLogoutButton.querySelector('a').href = 'profile.html'; // Assuming 'profile.html' is your profile page
-            loginLogoutButton.querySelector('a').innerHTML = `<span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span> ${loginLogoutText.innerHTML}`; // Update the innerHTML to include the user icon and "Profil"
-        } else {
-            // No user is signed in, show login button
-            loginLogoutText.innerHTML = 'Login';
-            loginLogoutButton.querySelector('a').href = 'login.html'; // Change back to login page
-            loginLogoutButton.querySelector('a').innerHTML = `<span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span> ${loginLogoutText.innerHTML}`; // Reset innerHTML to show "Login"
-        }
-    });
-}
-
-// Initialize toggle function on document load
-document.addEventListener('DOMContentLoaded', () => {
-  toggleLoginLogout();
-
-  // Existing code for handling form submissions remains unchanged...
+// Code pour détecter l'état de connexion de l'utilisateur
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // L'utilisateur est connecté
+    loginLogoutButton.innerHTML = `
+      <a href="javascript:void(0);" onclick="logoutUser()">
+        <span class="user_icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        Logout
+      </a>
+    `;
+  } else {
+    // L'utilisateur est déconnecté
+    loginLogoutButton.innerHTML = `
+      <a href="../html/../../login.html">
+        <span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+        Login
+      </a>
+    `;
+  }
 });
 
 
+// Fonction pour déconnecter l'utilisateur
+function logoutUser() {
+  auth.signOut().then(() => {
+    console.log("L'utilisateur est déconnecté");
+    // Redirigez vers la page de connexion
+    window.location.href = '../html/../../login.html';
+  }).catch((error) => {
+    console.error("Erreur de déconnexion", error);
+  });
+}
+
+
+// Assurez-vous d'appeler la fonction toggleLoginLogout au chargement du document
+document.addEventListener('DOMContentLoaded', toggleLoginLogout);
