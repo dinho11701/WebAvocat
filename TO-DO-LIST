@@ -21,12 +21,14 @@ faire tt les pages manquantes:
 2-faire une page pour dire email sent successfully et retourner à page accueil qui est index.html
 ou retourner direct à page accueil - DONE
 
-3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out
-mais verifier quand-même)
+3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out - DONE pour index.html
+-faire pour les autres
 
 
+4-quand jappuie sur "se deconnecter" ds profil, ca doit ramener vers login.html et non index.html
 
-4-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
+
+5-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
 
 
 
