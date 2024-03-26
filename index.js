@@ -95,18 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Code pour détecter l'état de connexion de l'utilisateur
 auth.onAuthStateChanged(user => {
+  const loginLogoutButton = document.getElementById('loginLogoutButton');
+  const profileButton = document.getElementById('profileButton'); // Get the profile button element
+  
   if (user) {
-    // L'utilisateur est connecté
+    // User is signed in
+    profileButton.style.display = 'block'; // Show the profile button
     loginLogoutButton.innerHTML = `
       <a href="javascript:void(0);" onclick="logoutUser()">
-        <span class="user_icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        <span class="user_icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
         Logout
       </a>
     `;
   } else {
-    // L'utilisateur est déconnecté
+    // No user is signed in
+    profileButton.style.display = 'none'; // Hide the profile button
     loginLogoutButton.innerHTML = `
-      <a href="../html/../../login.html">
+      <a href="login.html">
         <span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>
         Login
       </a>

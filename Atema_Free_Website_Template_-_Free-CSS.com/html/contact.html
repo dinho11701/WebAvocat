@@ -56,12 +56,23 @@
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
-                        <ul>
-                           <li><a href="../html/../../login.html"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
-                           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        </ul>
+                         <ul>
+                             <li id="loginLogoutButton">
+                                 <!-- Le lien sera défini dynamiquement par JavaScript -->
+                                 <a href="../html/../../login.html"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span><span id="loginLogoutText">Login</span></a>
+                             </li>
+                 
+                             <!-- Add Profile Button, initially hidden -->
+                             <li id="profileButton" style="display:none;">
+                                <a href="../html/../../profil.html">
+                                <span class="user_icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                Profile
+                                </a>
+                             </li>
+                 
+                         </ul>
                      </div>
-                  </form>
+                 </form>
                </div>
             </nav>
          </div>
@@ -154,5 +165,16 @@
       <script src="js/custom.js"></script>
       <script src="js/mailcontact.js"></script>
       <!-- javascript --> 
+
+           <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+
+
+
+      <script src="../../index.js"></script>
    </body>
 </html>

@@ -25,10 +25,13 @@ ou retourner direct à page accueil - DONE
 -faire pour les autres
 
 
+
 4-quand jappuie sur "se deconnecter" ds profil, ca doit ramener vers login.html et non index.html
 
 
 5-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
+
+6- quand jappuie sur "contact us", ca doit ramener à la page contact.html
 
 
 
