@@ -102,8 +102,8 @@ text-transform: uppercase;
 <body>
 <div class="profile-card">
     <img src="https://via.placeholder.com/100" alt="Profile Avatar">
-    <h2>Jane Doe</h2>
-    <p>New York, United States</p>
+    <h2 id="userFullName">Jane Doe</h2>
+    <p id="userEmail">jane.doe@example.com</p>
     <p class="email">jane.doe@example.com</p>
     
     <button class="button">Mes dossiers</button>
@@ -113,10 +113,20 @@ text-transform: uppercase;
 <script>
     // Écouter le clic sur le bouton 'Se déconnecter'
     document.querySelector('.logout').addEventListener('click', function() {
-        window.location.href = '../Atema_Free_Website_Template_-_Free-CSS.com/html/index.html';
+        window.location.href = 'login.html';
     });
 
 </script>
+
+    <!-- Firebase App est toujours nécessaire et doit être en premier -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
+
+    <script src="index.js"></script>
 
 
 </body>

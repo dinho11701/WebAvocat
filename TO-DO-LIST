@@ -22,18 +22,21 @@ faire tt les pages manquantes:
 ou retourner direct à page accueil - DONE
 
 3-faire page avec item se deconnecter , lorsque tes connecté (ca devrait être juste de remplacer login par log out - DONE pour index.html
--faire pour les autres
+-faire pour les autres - DONE
 
 
-
-4-quand jappuie sur "se deconnecter" ds profil, ca doit ramener vers login.html et non index.html
-
-
-5-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
-
-6- quand jappuie sur "contact us", ca doit ramener à la page contact.html
+le changement entre LOGIN et LOGOUT et PROFILE ne se fait pas tt de suite, ca prend qq secondes, peut-tu faire qqch pour ca se fasse instantanement? NOT DONE YET
 
 
+4-quand jappuie sur "se deconnecter" ds profil, ca doit ramener vers login.html et non index.html - DONE
+
+5-récupérer le nom prénom et adresse mail du user pour les mettre ds le profil
+
+6-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
+
+7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
+
+8- mot de passe oublié , régler ce cas
 
 
 

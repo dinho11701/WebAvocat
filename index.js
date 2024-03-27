@@ -20,20 +20,29 @@ firebase.analytics()
 const auth = firebase.auth()
 
 // Fonction pour inscrire un nouvel utilisateur
-function registerUser (email, password) {
+function registerUser(email, password, firstName, lastName) {
   return auth.createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      // Inscription réussie
-      const user = userCredential.user
-      console.log(`Utilisateur créé avec succès : ${user.uid}`)
+      // Registration successful
+      const user = userCredential.user;
+      console.log(`User created successfully: ${user.uid}`);
+      // You might want to save additional user information in Firestore here
+
+      return firebase.firestore().collection('users').doc(user.uid).set({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      })
+      .then(() => {
+        // Redirect after saving additional information
+        window.location.href = 'login.html';
+      });
     })
     .catch((error) => {
-      // Gestion des erreurs
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.error(`Erreur lors de la création de l'utilisateur : ${errorCode}`, errorMessage)
-      throw error
-    })
+      // Error handling
+      console.error(`Error during user creation: ${error.code}`, error.message);
+      alert(`Error during signup: ${error.message}`);
+    });
 }
 
 // Fonction pour connecter un utilisateur
@@ -55,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
-      let password = document.getElementById('password').value;
+      const password = document.getElementById('password').value;
+      const firstName = document.getElementById('firstname').value;
+      const lastName = document.getElementById('lastname').value;
 
       // Check if password contains spaces
       if (/\s/.test(password)) {
@@ -65,9 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Further checks for password could go here (length, special characters, etc.)
 
-      registerUser(email, password)
+      registerUser(email, password, firstName, lastName)
         .then(() => {
-          window.location.href = 'login.html'; // Redirect to login after successful signup
+          //window.location.href = 'login.html'; // Redirect to login after successful signup
+          
         })
         .catch((error) => {
           alert(`Erreur lors de l'inscription: ${error.message}`);
@@ -94,14 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Code pour détecter l'état de connexion de l'utilisateur
+// Code to detect the user's login state
 auth.onAuthStateChanged(user => {
+  // Attempt to get both the loginLogoutButton and profileButton elements
   const loginLogoutButton = document.getElementById('loginLogoutButton');
-  const profileButton = document.getElementById('profileButton'); // Get the profile button element
-  
+  const profileButton = document.getElementById('profileButton');
+
   if (user) {
     // User is signed in
-    profileButton.style.display = 'block'; // Show the profile button
-    loginLogoutButton.innerHTML = `
+    if (profileButton) profileButton.style.display = 'block'; // Show the profile button only if it exists
+    if (loginLogoutButton) loginLogoutButton.innerHTML = `
       <a href="javascript:void(0);" onclick="logoutUser()">
         <span class="user_icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
         Logout
@@ -109,15 +123,17 @@ auth.onAuthStateChanged(user => {
     `;
   } else {
     // No user is signed in
-    profileButton.style.display = 'none'; // Hide the profile button
-    loginLogoutButton.innerHTML = `
-      <a href="login.html">
+    if (profileButton) profileButton.style.display = 'none'; // Hide the profile button only if it exists
+    if (loginLogoutButton) loginLogoutButton.innerHTML = `
+      <a href="../html/../../login.html">
         <span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>
         Login
       </a>
     `;
   }
 });
+
+
 
 
 // Fonction pour déconnecter l'utilisateur
@@ -133,4 +149,42 @@ function logoutUser() {
 
 
 // Assurez-vous d'appeler la fonction toggleLoginLogout au chargement du document
-document.addEventListener('DOMContentLoaded', toggleLoginLogout);
+//document.addEventListener('DOMContentLoaded', toggleLoginLogout);
+
+
+// Retrieving user data and updating profile page
+// Call updateUserProfile when the profile page loads
+document.addEventListener('DOMContentLoaded', function() {
+  updateUserProfile();
+});
+
+function updateUserProfile() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in, now get the user's document from Firestore
+      firebase.firestore().collection('users').doc(user.uid).get()
+        .then(function(doc) {
+          if (doc.exists) {
+            const userData = doc.data();
+            // Now set the text content of the profile elements
+            document.getElementById('userFullName').textContent = `${userData.firstName} ${userData.lastName}`;
+            document.getElementById('userEmail').textContent = userData.email;
+
+            //console.log(userData.email);
+
+          } else {
+            // Handle the case where the user data document doesn't exist
+            console.log("No user data available");
+          }
+        }).catch(function(error) {
+          // Handle any errors while fetching user data
+          console.error("Error fetching user data:", error);
+        });
+    } else {
+      // No user is signed in, handle the unsigned state or redirect to the login page
+      console.log("User is not signed in");
+      // Optionally redirect to the login page
+      // window.location.href = 'login.html';
+    }
+  });
+}
