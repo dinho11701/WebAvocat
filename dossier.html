@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gestion des fichiers et dossiers</title>
+    <link rel="stylesheet" href="dossier.css">
+  </head>
+  <body>
+    <h1>Gestion des fichiers et dossiers</h1>
+    <div id="folder-container">
+      <h2>Dossiers</h2>
+      <button id="create-folder-btn">Créer un dossier</button>
+      <input type="text" id="folder-name" placeholder="Nom du dossier">
+      <ul id="folder-list"></ul>
+    </div>
+    <div id="file-container">
+      <h2>Fichiers</h2>
+      <button id="create-file-btn">Créer un fichier</button>
+      <input type="text" id="file-name" placeholder="Nom du fichier">
+      <ul id="file-list"></ul>
+    </div>
+
+        <!-- Firebase App est toujours nécessaire et doit être en premier -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+        <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+        
+
+    <script src="index.js"></script>
+
+  </body>
+</html>

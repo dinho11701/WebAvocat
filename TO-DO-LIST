@@ -30,13 +30,15 @@ le changement entre LOGIN et LOGOUT et PROFILE ne se fait pas tt de suite, ca pr
 
 4-quand jappuie sur "se deconnecter" ds profil, ca doit ramener vers login.html et non index.html - DONE
 
-5-récupérer le nom prénom et adresse mail du user pour les mettre ds le profil
+5-récupérer le nom prénom et adresse mail du user pour les mettre ds le profil - DONE
 
 6-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
 
 7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
 
 8- mot de passe oublié , régler ce cas
+9- page facebook insta?
+10- mail de confirmation d'inscription(payant avec firebase)
 
 
 
