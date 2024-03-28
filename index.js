@@ -189,3 +189,19 @@ function updateUserProfile() {
     }
   });
 }
+
+document.getElementById('reset-password-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var emailAddress = document.getElementById('email').value;
+
+  firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+    // Email sent.
+    console.log('Reset link sent to your email address.');
+    // Update UI to show a message about the email being sent
+  }).catch(function(error) {
+    // An error happened.
+    console.error('Error sending reset email:', error);
+    // Update UI to show an error message
+  });
+});
