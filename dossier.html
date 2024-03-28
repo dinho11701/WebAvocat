@@ -1,36 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Gestion des fichiers et dossiers</title>
-    <link rel="stylesheet" href="dossier.css">
-  </head>
-  <body>
-    <h1>Gestion des fichiers et dossiers</h1>
-    <div id="folder-container">
-      <h2>Dossiers</h2>
-      <button id="create-folder-btn">Créer un dossier</button>
-      <input type="text" id="folder-name" placeholder="Nom du dossier">
-      <ul id="folder-list"></ul>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional File Explorer</title>
+  <link rel="stylesheet" href="dossier.css">
+</head>
+<body>
+  <header>
+    <h1>File Explorer</h1>
+  </header>
+  
+  <section class="file-explorer">
+    
+    <div class="controls">
+      <button id="new-folder">New Folder</button>
+      <button id="upload-files">Upload Files</button>
     </div>
-    <div id="file-container">
-      <h2>Fichiers</h2>
-      <button id="create-file-btn">Créer un fichier</button>
-      <input type="text" id="file-name" placeholder="Nom du fichier">
-      <ul id="file-list"></ul>
+    
+    <div class="folders">
+      <h2>Folders</h2>
+      <!-- Dynamic folder list will be populated here -->
+      <div id="folder-list"></div>
     </div>
-
-        <!-- Firebase App est toujours nécessaire et doit être en premier -->
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
-
-        <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
-        <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
-        
-
-    <script src="index.js"></script>
-
-  </body>
+    
+    <div class="files">
+      <h2>Files</h2>
+      <!-- Dynamic file list will be populated here -->
+      <div id="file-list"></div>
+    </div>
+    
+  </section>
+  
+  <footer>
+    <p>Created by YourName</p>
+  </footer>
+  
+  <!-- Firebase scripts will go here -->
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // JavaScript to handle adding new folders
+    document.addEventListener('DOMContentLoaded', () => {
+      const addFolderBtn = document.getElementById('add-folder-btn');
+      const folderList = document.getElementById('folder-list');
+    
+      addFolderBtn.addEventListener('click', () => {
+        const folderName = prompt('Enter the name of the new folder:');
+        if (folderName) {
+          // Here you would typically call a function to handle creating the folder in Firestore
+          createFolder(folderName);
+    
+          // For immediate UI update (assuming createFolder handles Firestore updates)
+          const newFolderDiv = document.createElement('div');
+          newFolderDiv.textContent = folderName; // Set folder name
+          // Add any additional styling or class names to newFolderDiv
+          folderList.appendChild(newFolderDiv);
+        }
+      });
+    });
+    
+    // Example createFolder function
+    function createFolder(folderName) {
+      // Placeholder for your Firestore folder creation logic
+      console.log(`Creating folder: ${folderName}`);
+      // Add Firestore folder creation code here
+    }
+    </script>
+</body>
 </html>

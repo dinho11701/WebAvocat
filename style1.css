@@ -168,3 +168,24 @@ button:hover {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+/*bas de page inscription*/
+.login-redirect {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-redirect p {
+    color: #333;
+    font-size: 1rem;
+}
+
+.login-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}

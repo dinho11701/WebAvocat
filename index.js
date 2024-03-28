@@ -19,6 +19,7 @@ firebase.analytics()
 
 const auth = firebase.auth()
 
+
 // Fonction pour inscrire un nouvel utilisateur
 function registerUser(email, password, firstName, lastName) {
   return auth.createUserWithEmailAndPassword(email, password)
@@ -188,84 +189,3 @@ function updateUserProfile() {
     }
   });
 }
-
-
-
-const folderNameInput = document.getElementById('folder-name');
-const folderList = document.getElementById('folder-list');
-const createFolderBtn = document.getElementById('create-folder-btn');
-
-createFolderBtn.addEventListener('click', () => {
-  const folderName = folderNameInput.value;
-  if (!folderName) {
-    return;
-  }
-  // Appel au backend pour créer le dossier
-  fetch(`/create-folder?folderName=${folderName}`)
-    .then(res => res.text())
-    .then(message => {
-      const li = document.createElement('li');
-      li.textContent = folderName;
-      const removeBtn = document.createElement('button');
-      removeBtn.textContent = 'Supprimer';
-      removeBtn.addEventListener('click', () => {
-        // Appel au backend pour supprimer le dossier
-        fetch(`/delete-folder?folderName=${folderName}`)
-          .then(res => res.text())
-          .then(message => {
-            li.remove();
-          });
-      });
-      li.appendChild(removeBtn);
-      folderList.appendChild(li);
-      folderNameInput.value = '';
-    });
-});
-
-// Assuming you have an input element for file selection
-const fileInput = document.getElementById('file-input');
-const uploadFileBtn = document.getElementById('upload-file-btn');
-
-uploadFileBtn.addEventListener('click', () => {
-  const file = fileInput.files[0];
-  if (!file) {
-    return;
-  }
-
-  const folderName = folderNameInput.value;
-  const storageRef = firebase.storage().ref();
-  const fileRef = storageRef.child(`${folderName}/${file.name}`);
-
-  fileRef.put(file).then(() => {
-    console.log(`${file.name} uploaded successfully to ${folderName} folder.`);
-    // Optional: Update the UI to show the uploaded file
-  }).catch(error => {
-    console.error("Error uploading file: ", error);
-  });
-});
-
-
-const createFolder = (folderName) => {
-  // Assuming 'folders' is your collection for storing folder data
-  return firebase.firestore().collection('folders').doc(folderName).set({
-    name: folderName,
-    // Add any other folder attributes you might need
-  });
-};
-
-createFolderBtn.addEventListener('click', () => {
-  const folderName = folderNameInput.value.trim();
-  if (!folderName) {
-    alert('Please enter a folder name.');
-    return;
-  }
-  
-  createFolder(folderName)
-    .then(() => {
-      console.log('Folder created successfully');
-      // Update UI accordingly
-    })
-    .catch(error => {
-      console.error('Error creating folder:', error);
-    });
-});
