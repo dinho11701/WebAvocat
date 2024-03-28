@@ -36,7 +36,12 @@ le changement entre LOGIN et LOGOUT et PROFILE ne se fait pas tt de suite, ca pr
 
 7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
 
-8- mot de passe oublié , régler ce cas
+8- mot de passe oublié , régler ce cas 
+    envoi de mail fonctionnel
+    lien pour changer password 
+     pototo
+
+
 9- page facebook insta?
 10- mail de confirmation d'inscription(payant avec firebase)
 
