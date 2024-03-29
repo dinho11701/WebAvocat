@@ -222,3 +222,15 @@ document.getElementById('toggle-password').addEventListener('change', function(e
   }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const togglePassword = document.getElementById('toggle-password');
+  const passwordInput = document.getElementById('password');
+
+  togglePassword.addEventListener('click', function() {
+    // Toggle the type attribute
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    // Toggle the text of the toggle button
+    this.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+});
