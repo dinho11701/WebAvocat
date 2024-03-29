@@ -24,25 +24,24 @@ const auth = firebase.auth()
 function registerUser(email, password, firstName, lastName) {
   return auth.createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      // Registration successful
       const user = userCredential.user;
-      console.log(`User created successfully: ${user.uid}`);
-      // You might want to save additional user information in Firestore here
-
+      // Save user information in Firestore
       return firebase.firestore().collection('users').doc(user.uid).set({
         firstName: firstName,
         lastName: lastName,
         email: email,
-      })
-      .then(() => {
-        // Redirect after saving additional information
-        window.location.href = 'login.html';
+      }).then(() => {
+        // Send verification email
+        return user.sendEmailVerification();
       });
     })
+    .then(() => {
+      console.log("Verification email sent.");
+      window.location.href = 'login.html'; // Redirect to login page
+    })
     .catch((error) => {
-      // Error handling
-      console.error(`Error during user creation: ${error.code}`, error.message);
-      alert(`Error during signup: ${error.message}`);
+      console.error(`Error: ${error.code}`, error.message);
+      alert(`Error: ${error.message}`);
     });
 }
 
