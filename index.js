@@ -199,17 +199,18 @@ document.addEventListener('DOMContentLoaded', function() {
       var emailAddress = document.getElementById('email').value;
 
       firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
-        // Email sent.
-        console.log('Reset link sent to your email address.');
-        // Update UI to show a message about the email being sent
+        alert('A reset link has been sent to your email address.');
       }).catch(function(error) {
-        // An error happened.
-        console.error('Error sending reset email:', error);
-        // Update UI to show an error message
+        if (error.code === 'auth/user-not-found') {
+          alert('Email address is not registered. Please check and try again.');
+        } else {
+          alert('An error occurred. Please try again later.');
+        }
       });
     });
   }
 });
+
 
 
 document.getElementById('toggle-password').addEventListener('change', function(e) {
