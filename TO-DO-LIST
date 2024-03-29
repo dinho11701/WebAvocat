@@ -36,14 +36,18 @@ le changement entre LOGIN et LOGOUT et PROFILE ne se fait pas tt de suite, ca pr
 
 7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
 
-8- mot de passe oublié , régler ce cas 
-    envoi de mail fonctionnel
-    lien pour changer password 
-     pototo
+8- mot de passe oublié - DONE
+    envoi de mail fonctionnel - DONE
+    lien pour changer password - DONE
+
+    new password : gogogo
+    après avoir appuyé sur le boutton , faut ca me dise que email envoyé
+    si mail ds BD ou email invalide si abscent de BD 
 
 
-9- page facebook insta?
-10- mail de confirmation d'inscription(payant avec firebase)
+9-mettre password visible plus tard - DONE
+10- page facebook insta?
+11- mail de confirmation d'inscription(payant avec firebase)
 
 
 

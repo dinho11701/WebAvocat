@@ -156,9 +156,11 @@ function logoutUser() {
 // Retrieving user data and updating profile page
 // Call updateUserProfile when the profile page loads
 document.addEventListener('DOMContentLoaded', function() {
-  updateUserProfile();
+  // Only run updateUserProfile if the elements exist
+  if (document.getElementById('userFullName') && document.getElementById('userEmail')) {
+    updateUserProfile();
+  }
 });
-
 function updateUserProfile() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -190,18 +192,33 @@ function updateUserProfile() {
   });
 }
 
-document.getElementById('reset-password-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+  const resetPasswordForm = document.getElementById('reset-password-form');
+  if (resetPasswordForm) {
+    resetPasswordForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var emailAddress = document.getElementById('email').value;
 
-  var emailAddress = document.getElementById('email').value;
-
-  firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
-    // Email sent.
-    console.log('Reset link sent to your email address.');
-    // Update UI to show a message about the email being sent
-  }).catch(function(error) {
-    // An error happened.
-    console.error('Error sending reset email:', error);
-    // Update UI to show an error message
-  });
+      firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+        // Email sent.
+        console.log('Reset link sent to your email address.');
+        // Update UI to show a message about the email being sent
+      }).catch(function(error) {
+        // An error happened.
+        console.error('Error sending reset email:', error);
+        // Update UI to show an error message
+      });
+    });
+  }
 });
+
+
+document.getElementById('toggle-password').addEventListener('change', function(e) {
+  const passwordInput = document.getElementById('password');
+  if (e.target.checked) {
+    passwordInput.type = 'text';
+  } else {
+    passwordInput.type = 'password';
+  }
+});
+
