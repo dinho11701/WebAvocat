@@ -34,20 +34,33 @@ le changement entre LOGIN et LOGOUT et PROFILE ne se fait pas tt de suite, ca pr
 
 6-faire la partie dossiers pour le profil, ca devrait de créer des dossiers, supp,ajouter de
 
-7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
 
 8- mot de passe oublié - DONE
     envoi de mail fonctionnel - DONE
     lien pour changer password - DONE
 
     new password : gogogo
-    après avoir appuyé sur le boutton , faut ca me dise que email envoyé
-    si mail ds BD ou email invalide si abscent de BD 
+    
 
 
 9-mettre password visible plus tard - DONE
-10- page facebook insta?
-11- mail de confirmation d'inscription(payant avec firebase)
+
+
+TACHES AJD:
+
+10- page facebook insta? demander à ALI
+
+11- mail de confirmation d'inscription(payant avec firebase?)
+
+12- après avoir appuyé sur le boutton , faut ca me dise que email envoyé
+si mail ds BD ou email invalide si abscent de BD 
+
+13- renvoyer à page login.html
+
+14- régler bon nombre pour le numero de tel ds contact.html
+
+7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
+
 
 
 
@@ -57,7 +70,6 @@ login - index DONE
 tt pages html vers login.html quand on appuie sur boutton login DONE
 
 
--régler bon nombre pour le numero de tel ds contact.html
 -etre une bonne adresse mail valide
 
 À la FIN : régler le problème de disparition de Calendly ds page de prise de rdv
