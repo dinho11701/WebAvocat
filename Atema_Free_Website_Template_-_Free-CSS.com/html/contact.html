@@ -90,9 +90,9 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="mail_section map_form_container">
-                        <form id="contactForm" action="http://localhost:2016/send-email" method="post" enctype="multipart/form-data">
+                        <form id="contactForm" action="http://localhost:2018/send-email" method="post" enctype="multipart/form-data">
                           <input type="text" class="mail_text" placeholder="Name" name="name" required>
-                          <input type="text" class="mail_text" placeholder="Phone Number" name="phoneNumber" required> 
+                          <input type="tel" class="mail_text" placeholder="Phone Number" name="phoneNumber" pattern="\d{10}" required title="Phone number should be 10 digits">
                           <input type="email" class="mail_text" placeholder="Your Email" name="email" required>
                           <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="message" required></textarea>
                       

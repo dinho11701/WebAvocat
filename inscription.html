@@ -60,6 +60,18 @@
 
     <script src="index.js"  type="module" ></script>
 
+    <script>
+        document.getElementById('toggle-password').addEventListener('change', function(e) {
+  const passwordInput = document.getElementById('password');
+  if (e.target.checked) {
+    passwordInput.type = 'text';
+  } else {
+    passwordInput.type = 'password';
+  }
+});
+
+    </script>
+
 
 </body>
 </html>

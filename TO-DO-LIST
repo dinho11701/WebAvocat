@@ -53,9 +53,9 @@ TACHES AJD:
 11- mail de confirmation d'inscription(payant avec firebase?) - DONE pas payant
 
 12- après avoir appuyé sur le boutton , faut ca me dise que email envoyé
-si mail ds BD ou email invalide si abscent de BD 
+si mail ds BD ou email invalide si abscent de BD - DONE
 
-13- renvoyer à page login.html
+13- renvoyer à page login.html - DONE
 
 14- régler bon nombre pour le numero de tel ds contact.html
 
