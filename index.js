@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
         alert('A reset link has been sent to your email address.');
+        window.location.href = 'login.html';
       }).catch(function(error) {
         if (error.code === 'auth/user-not-found') {
           alert('Email address is not registered. Please check and try again.');
