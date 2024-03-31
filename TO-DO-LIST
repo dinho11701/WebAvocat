@@ -57,9 +57,23 @@ si mail ds BD ou email invalide si abscent de BD - DONE
 
 13- renvoyer à page login.html - DONE
 
-14- régler bon nombre pour le numero de tel ds contact.html
+14- régler bon nombre pour le numero de tel ds contact.html - DONE
 
-7- quand jappuie sur "contact us", ca doit ramener à la page contact.html
+7- quand jappuie sur "contact us", ca doit ramener à la page contact.html - DONE 
+
+15 - 
+Quand j'appuie sur 
+Book At
+Appoinment
+ca doit amener à page book.html 
+
+À suivre:
+AJD:
+-faire design de book.html avec simplement l'intégration de Calendly 
+et la barre de navig par default et le footer des autres pages 
+
+DEMAIN:
+-faire la page login admin de l'avocat
 
 
 
