@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Admin</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Connexion Admin</h2>
+            <form id="admin-login-form">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    <button type="button" id="toggle-password" aria-label="Toggle password visibility">
+                        <span>Afficher</span>
+                    </button>
+                </div>
+                <div class="forgot-password">
+                    <a href="reset-password.html">Mot de passe oublié?</a>
+                </div>
+                <button type="submit">CONNEXION</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="index.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? 'Afficher' : 'Masquer';
+            });
+            const form = document.getElementById("admin-login-form");
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const username = form["username"].value;
+                const password = form["password"].value;
+                firebase.auth().signInWithEmailAndPassword(username, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log("Utilisateur connecté:", user);
+                        window.location.href = "admin-dashboard.html";
+                    })
+                    .catch((error) => {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.error("Erreur de connexion:", errorCode, errorMessage);
+                        alert("Erreur de connexion. Veuillez vérifier vos informations d'identification.");
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

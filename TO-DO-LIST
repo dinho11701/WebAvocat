@@ -70,10 +70,10 @@ ca doit amener à page book.html
 À suivre:
 AJD:
 -faire design de book.html avec simplement l'intégration de Calendly 
-et la barre de navig par default et le footer des autres pages 
+et la barre de navig par default et le footer des autres pages - DONE
 
 DEMAIN:
--faire la page login admin de l'avocat
+-faire la page login admin de l'avocat (2h)
 
 
 
@@ -84,6 +84,3 @@ login - index DONE
 tt pages html vers login.html quand on appuie sur boutton login DONE
 
 
--etre une bonne adresse mail valide
-
-À la FIN : régler le problème de disparition de Calendly ds page de prise de rdv
