@@ -213,3 +213,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const resetPasswordForm = document.getElementById('reset-password-form-admin');
+  if (resetPasswordForm) {
+    resetPasswordForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var emailAddress = document.getElementById('email-admin').value;
+
+      firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+        alert('A reset link has been sent to your email address.');
+        window.location.href = 'admin-login.html';
+      }).catch(function(error) {
+        if (error.code === 'auth/user-not-found') {
+          alert('Email address is not registered. Please check and try again.');
+        } else {
+          alert('An error occurred. Please try again later.');
+        }
+      });
+    });
+  }
+});
+
+

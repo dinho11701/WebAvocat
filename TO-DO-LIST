@@ -74,8 +74,13 @@ et la barre de navig par default et le footer des autres pages - DONE
 
 DEMAIN:
 -faire la page login admin de l'avocat (2h)
-    - changer image en background
-    - ajouter mot de passe oublié
+    - changer image en background - DONE    
+    - ajouter mot de passe oublié - DONE
+    - vérifier fonctionnalités
+        - ca doit renvoyer vers admin-login.html apès envoi mail pour forgot password - DONE
+        - afficher password - DONE
+        - login avec new password fonctionnel
+        - redirection vers admin-dashboard.html 
 
 -faire page s'inscrire (1h)
 

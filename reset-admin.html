@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Your Password</title>
+  <link rel="stylesheet" href="reset-password.css">
+</head>
+<body>
+  <section class="reset-password-section">
+    <h1>Reset Your Password</h1>
+    <p>Enter your email address and we'll send you a link to reset your password.</p>
+    <form id="reset-password-form-admin">
+        <div class="form-field">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email-admin" name="email" required>
+        </div>
+        <div class="form-field">
+          <button type="submit">Send Reset Link</button>
+        </div>
+      </form>
+      
+  </section>
+      <!-- Firebase App est toujours nécessaire et doit être en premier -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+      <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
+  
+      <script src="index.js"></script>
+</body>
+</html>
