@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" type="text/css" href="style-admin-inscription.css">
+</head>
+<body>
+
+    <main>
+        <div class="form-container">
+            <h1>Inscription Admin</h1>
+            <form id="signup-form">
+                
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="password" required>
+                    <input type="checkbox" id="toggle-password"> Afficher le mot de passe
+                </div>
+                  
+                <div class="form-field">
+                    <button type="submit">S'inscrire</button>
+                </div>
+                <div class="login-redirect">
+                    <p>Déjà inscrit ? <a href="admin-login.html" class="login-link">Connectez-vous ici</a>.</p>
+                </div>
+                
+                
+            </form>
+        </div>
+    </main>
+
+    <!-- Firebase App est toujours nécessaire et doit être en premier -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+
+    <!-- Ajoutez les produits Firebase que vous voulez utiliser ici -->
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    
+
+
+
+    <script src="index.js"  type="module" ></script>
+
+    <script>
+        document.getElementById('toggle-password').addEventListener('change', function(e) {
+  const passwordInput = document.getElementById('password');
+  if (e.target.checked) {
+    passwordInput.type = 'text';
+  } else {
+    passwordInput.type = 'password';
+  }
+});
+
+    </script>
+
+
+</body>
+</html>
