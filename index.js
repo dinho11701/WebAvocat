@@ -234,4 +234,56 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Fonction pour inscrire un nouvel utilisateur
+function registerAdmin(email, password) {
+  return auth.createUserWithEmailAndPassword(email, password)
+    .then((adminCredential) => {
+      const admin = adminCredential.user;
+      // Save user information in Firestore
+      return firebase.firestore().collection('admin').doc(admin.uid).set({
+        email: email,
+      }).then(() => {
+        // Send verification email
+        return admin.sendEmailVerification();
+      });
+    })
+    .then(() => {
+      console.log("Verification email sent.");
+      window.location.href = 'admin-login.html'; // Redirect to login page
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.code}`, error.message);
+      alert(`Error: ${error.message}`);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signup-form1');
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+
+      // Check if password contains spaces
+      if (/\s/.test(password)) {
+        alert('Le mot de passe ne doit pas contenir d\'espaces.');
+        return;
+      }
+
+      // Further checks for password could go here (length, special characters, etc.)
+
+      registerAdmin(email, password)
+        .then(() => {
+          //window.location.href = 'login.html'; // Redirect to login after successful signup
+          
+        })
+        .catch((error) => {
+          alert(`Erreur lors de l'inscription: ${error.message}`);
+        });
+    });
+  }
+
+})
 

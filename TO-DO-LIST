@@ -85,6 +85,9 @@ DEMAIN:
 
 -faire page s'inscrire (1h)
     - avec ses fonctionnalités
+        - inscrire admin avec mail et password
+        - deja inscrit? ca renvoie vers page admin-login.html
+        - afficher/cacher mot de passe fonctionnel
 
 -faire page admin-dashboard(on voit la liste de ts les clients qui ont envoyés des docs)
 
