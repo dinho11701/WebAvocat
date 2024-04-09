@@ -79,15 +79,15 @@ DEMAIN:
     - vérifier fonctionnalités
         - ca doit renvoyer vers admin-login.html apès envoi mail pour forgot password - DONE
         - afficher password - DONE
-        - login avec new password fonctionnel
+        - login avec new password fonctionnel 
         - redirection vers admin-dashboard.html 
 
 
 -faire page s'inscrire (1h)
     - avec ses fonctionnalités
-        - inscrire admin avec mail et password
-        - deja inscrit? ca renvoie vers page admin-login.html
-        - afficher/cacher mot de passe fonctionnel
+        - inscrire admin avec mail et password - DONE 
+        - deja inscrit? ca renvoie vers page admin-login.html - DONE
+        - afficher/cacher mot de passe fonctionnel - DONE
 
 -faire page admin-dashboard(on voit la liste de ts les clients qui ont envoyés des docs)
 

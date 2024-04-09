@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Fonction pour inscrire un nouvel utilisateur
+// Fonction pour inscrire un nouvel admin
 function registerAdmin(email, password) {
   return auth.createUserWithEmailAndPassword(email, password)
     .then((adminCredential) => {
@@ -285,5 +285,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  const loginForm = document.getElementById('admin-login-form')
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const email = document.getElementById('email').value
+      const password = document.getElementById('password').value
+      loginAdmin(email, password)
+        .then(() => {
+          window.location.href = 'admin-dashboard.html' // Redirigez vers une page appropriée après la connexion
+        })
+        .catch((error) => {
+          alert(`Erreur lors de la connexion: ${error.message}`)
+        })
+    })
+  }
+
 })
 
+// Fonction pour connecter un admin
+function loginAdmin (email, password) {
+  return auth.signInWithEmailAndPassword(email, password)
+    .then((adminCredential) => {
+      const admin = adminCredential.user
+      console.log(`Utilisateur connecté avec succès : ${admin.uid}`)
+    })
+    .catch((error) => {
+      console.error(`Erreur lors de la connexion : ${error.code}`, error.message)
+      throw error
+    })
+}
